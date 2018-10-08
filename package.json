@@ -1,0 +1,24 @@
+{
+  "name": "jeopardy",
+  "version": "1.0.0",
+  "description": "Mod 2 1808 Game-Time project",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/K-Rye/jeopardy.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/K-Rye/jeopardy/issues"
+  },
+  "homepage": "https://github.com/K-Rye/jeopardy#readme",
+  "devDependencies": {
+    "chai": "^4.2.0",
+    "eslint": "^5.6.1",
+    "mocha": "^5.2.0"
+  }
+}
