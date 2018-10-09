@@ -1,0 +1,41 @@
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="index.js"></script>
+  <link rel="stylesheet" href="./styles.css">
+  <title>Jeopardy</title>
+</head>
+<body>
+  <div class='game-container'>
+    <header>
+      <h1>JEOPARDY</h1>
+    </header>
+    <aside>Scores</aside>
+    <main>
+      <div class='gameboard'>GameBoard</div>
+    </main>
+    <footer>
+      <form class='game-options'>
+        <div class='player-options-container'>
+          <p>PLAYERS</p>
+          <select class='num-players'>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+          </select>
+        </div>
+        <button class='submit-game-options'>Start</button>
+      </form>
+    </footer>
+  </div>
+  <div class='player-name-popup hide'>
+    <h2>Player <span class='playernum'>1</span></h2>
+    <p>Enter Name: </p>
+    <input type='text' placeholder='John Smith'/>
+    <button>Submit</button>
+  </div>
+</body>
+</html>
