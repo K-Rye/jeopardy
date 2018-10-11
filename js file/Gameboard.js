@@ -4,7 +4,7 @@ class Gameboard {
     this.possibleCategories = this.generateCategories();
   }
 
-  generateQuestions() {
+  generateQuestions(currentRound) {
     const gameboard = {
       category1: [],
       category2:, []

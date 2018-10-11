@@ -1,21 +1,30 @@
 class Game  {
-  constructor(){
-    
+  
+  constructor(players) {
+    this.round = 1;
+    this.players = players;
   }
 
-  start(){
+  start() {
+    // create gameboard
 
   }
   
-  reset(){
+  reset() {
+    // create prompt for players
+    // create new gameboard
 
   }
 
-  updateRound(){
+  updateRound() {
+    //increase this.round
+    //create new gameboard with increased pointValue
+    //call declareWinner
 
   }
 
-  declareWinner(){
+  declareWinner() {
+    //
     
   }
 
