@@ -20,7 +20,7 @@ class Player {
 }
 
 
-if (module !== undefined) {
+if (module !== 'undefined') {
   module.exports = Player;
 };
 
