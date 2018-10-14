@@ -6,9 +6,15 @@ class Question {
     this.pointValue = clue.pointValue
   }
 
+  
+
 
 
 
 
 
 }
+
+if (module !== undefined) {
+  module.exports = Question;
+};
