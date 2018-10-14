@@ -4,15 +4,17 @@ class DailyDouble extends Question {
   }
 
   validateWager(wager) {
-    if (wager > this.points || wager < this.points) {
-      return "Enter valid wager."
+    if (wager.wager > this.points || wager.value < this.points) {
+      return "Enter valid wager"
+    } else if (wager.value === NaN) {
+      return "Enter valid wager"
     } else {
       submitAnswer();
-    }
+    };
+  };
+  
     //will return boolean 
-  }
-}
-
+};
 
 
 if (module !== undefined) {
