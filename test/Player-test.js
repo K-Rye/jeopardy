@@ -4,7 +4,6 @@ const Player = require('../js/Player.js');
 const Question = require('../js/Question.js');
 const data = require('../js/data.js');
 
-
 describe('Player', function() {
   let player; 
   let question;
