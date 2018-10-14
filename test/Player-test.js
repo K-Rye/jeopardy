@@ -8,10 +8,16 @@ const data = require('../js/data.js');
 describe('Player', function() {
   let player; 
   let question;
+  let testQuestion =     {
+      question: 'Scorecard Report" & "Peter Jacobsen Plugged In" are seen on the sports channel devoted to this',
+      answer: 'golf',
+      pointValue: 400,
+      categoryId: 10
+    }
 
   beforeEach(function() {
     player = new Player('name');
-    question = new Question(data.clues[0]);
+    question = new Question(testQuestion);
   })
 
   it('should increase player score', function() {
