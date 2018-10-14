@@ -6,6 +6,8 @@ class Question {
     this.pointValue = clue.pointValue
   }
 
+  
+
 
 
 

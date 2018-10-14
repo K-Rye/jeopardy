@@ -1,22 +1,22 @@
+if (typeof require !== 'undefined') { 
+  const Question = require('./Question.js');
+};
+
 class DailyDouble extends Question {
   constructor(clue) {
     super(clue)
   }
 
-  validateWager(wager) {
-    if (wager.wager > this.points || wager.value < this.points) {
-      return "Enter valid wager"
-    } else if (wager.value === NaN) {
-      return "Enter valid wager"
+  validateWager(wager, currentPlayer) {
+    if (isNaN(wager) || wager > currentPlayer.points || wager < 5) {
+      return false;
     } else {
-      submitAnswer();
+      return true;
     };
   };
-  
-    //will return boolean 
 };
 
 
-if (module !== undefined) {
+if (typeof module !== 'undefined') {
   module.exports = DailyDouble;
 };
