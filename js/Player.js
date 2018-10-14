@@ -14,7 +14,8 @@ class Player {
   };
 }
 
-if (module !== 'undefined') {
+
+if (typeof module !== 'undefined') {
   module.exports = Player;
 };
 
