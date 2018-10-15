@@ -21,7 +21,6 @@
       return randomQuestion;
     }
 
-    // copied from stack overflow
     const shuffle = (a) => {
       for (let i = a.length - 1; i > 0; i--) {
         const j = Math.floor(Math.random() * (i + 1));
@@ -30,7 +29,6 @@
       return a;
     }
 
-    // shuffle through the categories and choose randomly when invoked
     let categories = Object.keys(data.categories)
     categories = shuffle(categories)
 
@@ -40,9 +38,9 @@
 
       let categoryId = data.categories[category] 
 
-        // 4. we are looping over 5 times to polulate our category and increase the key value by 100 each time  
+      
         for (let i = 1; i < 6; i++) {
-          // 3. we set the value of our key which is a point value to the question that was randomly choosen in our chooseQuestion function
+          
           gb_categoryObj[i * 100] = chooseQuestion(i * 100, categoryId, categoryIndex);
         }
 
