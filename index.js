@@ -1,61 +1,20 @@
-// const data = require('./questions');
 
-$('.submit-game-options').on('click', createGame);
-
-function createGame(e) {
-  e.preventDefault();
-  const numPlayers = $('.num-players');
-  const players = [];
-  for (let i = 0; i < numPlayers; i++){
-    
-  }
+for (let i = 1; i < 6; i++) {
+  $('.gameboard').append(
+    `<div class='question-card-container'>
+    <div class='container-style question-card'>
+      <p class='question-category'>Category ${i}</p>
+    </div>
+  </div>`
+  )
 }
 
-class Game {
-  constructor(players) {
-    this.players = players;
-  }
-}
-
-class Player {
-  constructor(name) {
-    this.name = name;
-    this.points = 0;
-  }
-}
-
-class GameBoard extends Game {
-  constructor(players) {
-    super(players);
-    // this.board = this.generateBoard(data);
-  }
-
-  generateBoard(data) {
-    const board = {};
-    
-    //grab all 10 categories
-    const categories = Object.keys(data.categories);
-
-    //remove one at random until 5 are left
-    while (categories.length > 5) {
-      const randomCategory = categories.random();
-      categories.splice(categories.findIndexOf(randomCategory), 1);
-    }
-
-    categories.forEach((category) => {
-      const categoryId = data.categories[category];
-      board[category] = [];
-
-      for (let i = 0; i < data.clues.length; i++) {
-        if (data.clues[i].categoryId === categoryId) {
-          board[category].push(data.clues[i]);
-        }
-        if (board[category].length === 4) {
-          break;
-        }
-      }
-    })
-
-    return board;
-  }
+for (let i = 1; i < 21; i++) {
+  $('.gameboard').append(
+    `<div class='question-card-container'>
+    <div class='container-style question-card'>
+      <p class='question-value'>${100*(Math.ceil(i/5))}</p>
+    </div>
+  </div>`
+  )
 }
