@@ -5,16 +5,8 @@ class Question {
     this.answer = clue.answer;
     this.pointValue = clue.pointValue
   }
-
-  
-
-
-
-
-
-
 }
 
 if (module !== undefined) {
   module.exports = Question;
-};
+}
