@@ -323,6 +323,6 @@ const data = {
   ]
 };
 
-if (module !== undefined) {
+if (typeof module !== 'undefined') {
   module.exports = data;
-};
+}
