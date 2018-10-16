@@ -3,6 +3,10 @@
     src: url(./fonts/gyparody.ttf);
 }
 
+html {
+  overflow: hidden;
+}
+
 body {
   background: url('images/tron.png');
   background-size: 100vw 100vh;
