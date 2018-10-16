@@ -5,3 +5,7 @@ game.start(Gameboard.generateGameboard());
 game.init();
 
 
+DomUtilities.clickedOnGameboard();
+
+const domUtilities = new DomUtilities();
+domUtilities.clickedOnGameboard();
