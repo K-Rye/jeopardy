@@ -1,3 +1,8 @@
+@font-face {
+    font-family: gyparody;
+    src: url(./fonts/gyparody.ttf);
+}
+
 body {
   background: url('images/tron.png');
   background-size: 100vw 100vh;
@@ -7,9 +12,8 @@ body {
 }
 
 h1 {
+  font-family: gyparody, sans-serif;
   margin: 0;
-  padding-top: 10px;
- 
 }
 
 header {
@@ -34,6 +38,20 @@ main {
 
 }
 
+.category-card {
+  background: #3c60e28a;
+  height: 95%;
+  width: 95%;
+}
+
+.category-card-container {
+  align-items: center;
+  display: flex;
+  height: 100%;
+  justify-content: center;
+  width: 100%;
+}
+
 .container-style {
   align-items: center;
   background-color: #11176bc2;
@@ -45,8 +63,8 @@ main {
 
 .gameboard {
   display: grid;
-  grid-template-columns: repeat(5, 1fr);
-  grid-template-rows: repeat(5, 1fr);
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(6, 1fr);
   height: 95%;
   padding: 8px;
   width: 80%;
