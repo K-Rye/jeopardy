@@ -9,4 +9,4 @@ class Question {
 
 if (module !== undefined) {
   module.exports = Question;
-};
+}
