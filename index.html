@@ -3,9 +3,18 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <!-- <script src="Game.js"></script> -->
+
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script type='text/javascript' src="./js/data.js"></script>
+  <script type='text/javascript' src="./js/Utilities.js"></script>
+  <script type='text/javascript' src="./js/DomUtilities.js"></script>
+  <script type='text/javascript' src="./js/Question.js"></script>
+  <script type='text/javascript' src="./js/DailyDouble.js"></script>
+  <script type='text/javascript' src="./js/Player.js"></script>
+  <script type='text/javascript' src="./js/Gameboard.js"></script>
+  <script type='text/javascript' src="./js/Game.js"></script>
   <script type='text/javascript' src="index.js" async></script>
+
   <link rel="stylesheet" href="./styles.css">
   <title>Jeopardy</title>
 </head>
@@ -43,17 +52,29 @@
     </footer>
   </div>
   <div class='player-name-popup hide'>
-    <h2>Player <span class='playernum'>1</span></h2>
-    <p>Enter Name: </p>
-    <input type='text' placeholder='John Smith'/>
-    <button>Submit</button>
+    <form>
+      <label for="player1-name">Player 1</label>
+      <input id='player1-name' type="text" placeholder='Player One Name'>
+      <label for="player2-name">Player 2</label>
+      <input id='player2-name' type="text" placeholder='Player Two Name'>
+      <label for="player3-name">Player 3</label>
+      <input id='player3-name' type="text" placeholder='Player Three Name'>
+      <input class='submit-player-names' type="submit">
+    </form>
   </div>
 
-  <div class='submit-answer-popup'>
-    <h2>Player <span class='playernum'>1</span></h2>
-    <p>Enter Answer </p>
-    <input type='text' placeholder='Answer'/>
-    <button class='submit-answer-button'>Submit</button>
+  <div class='question-popup hide'>
+    <div class='question-popup-sizer container-style'>
+      <h2>Player <span class='playernum'>1</span></h2>
+      <p class='question-popup-question'></p>
+      <div class='question-popup-submission'>
+        <p>Enter Answer </p>
+        <input class='question-popup-answer' type='text' placeholder='Answer'/>
+        <button class='submit-answer-button'>Submit</button>
+      </div>
+      <p class='question-popup-correct displaynone'>Correct!</p>
+      <p class='question-popup-incorrect displaynone'>Incorrect!</p>
+    </div>
   </div>
 
 </body>

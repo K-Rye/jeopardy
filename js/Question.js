@@ -7,6 +7,6 @@ class Question {
   }
 }
 
-if (module !== undefined) {
+if (typeof module !== "undefined") {
   module.exports = Question;
 }

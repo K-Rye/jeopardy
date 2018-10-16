@@ -1,12 +1,21 @@
 class Game  {
   
-  constructor(players) {
+  constructor() {
     this.round = 1;
-    this.players = players;
+    this.players = [];
+    this.playerTurn = 0;
+    this.board = null;
+    this.currentQuestion;
   }
 
-  start() {
-    // create gameboard
+  init() {
+    DomUtilities.displayCategoryCards();
+    DomUtilities.displayQuestionCards();
+    DomUtilities.initializeListeners();
+  }
+
+  start(gameboard) {
+    this.board = gameboard;
 
   }
   
@@ -16,11 +25,15 @@ class Game  {
 
   }
 
-  updateRound() {
-    //increase this.round
-    //create new gameboard with increased pointValue
-    //call declareWinner
+  askQuestion(questionLevel, categoryNumber) {
+    this.currentQuestion = this.board[categoryNumber - 1][questionLevel];
 
+    $('.question-popup').removeClass('hide');
+    $('.question-popup-question').text(this.currentQuestion.question);
+  }
+
+  promptForPlayerNames() {
+    $('.player-name-popup').removeClass('hide');
   }
 
   declareWinner() {
