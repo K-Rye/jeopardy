@@ -8,6 +8,7 @@ class Utilities {
     const possibleQuestions = data.clues.filter(clue => {
       return clue.pointValue === pointValue && clue.categoryId === categoryId
     })
+
     const randomQuestion = possibleQuestions[this.generateRandomIndex(possibleQuestions.length)]
     randomQuestion.pointValue *= (Math.floor((categoryIndex) / 4) + 1)
     return randomQuestion;

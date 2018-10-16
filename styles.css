@@ -61,6 +61,10 @@ main {
   justify-content: center;
 }
 
+.displaynone {
+  display: none;
+}
+
 .gameboard {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
@@ -78,7 +82,7 @@ main {
 }
 
 .hide {
-  display: none;
+  visibility: hidden;
 }
 
 .player-name-popup {
@@ -111,6 +115,26 @@ main {
 .question-category {
   font-size: 24px;
   margin: 0;
+}
+
+.question-popup {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  justify-content: center;
+  position: absolute;
+  top: 0;
+  width: 100vw;
+}
+
+.question-popup-sizer {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  width: 50vw;
 }
 
 .question-value {
