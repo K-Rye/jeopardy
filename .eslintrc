@@ -6,6 +6,10 @@
     "commonjs": true,
     "es6": true,
     "mocha": true
+    "globals": {
+    "jQuery": true,
+    "$": true
+    },
   },
   "extends": "eslint:recommended",
   "parserOptions": { "sourceType": "module" },
