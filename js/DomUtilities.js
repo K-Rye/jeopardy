@@ -38,25 +38,25 @@ class DomUtilities {
     $('.wager-popup').removeClass('hide');
   }
 
-  static displayQuestionCards() {
+  static displayQuestionCards(round) {
     for (let i = 1; i < 21; i++) {
 
       const qLevel = 100 * (Math.ceil(i / 4));
-      const categ = i % 4 || 4;
+      const categ = (i % 4 || 4) + 4 * (round - 1);
 
       $('.gameboard').append(
         `<div class='question-card-container q-${qLevel} cat-${categ}'>
           <div class='container-style question-card'>
-            <p class='question-value'>${qLevel}</p>
+            <p class='question-value'>${qLevel * round}</p>
         </div>
       </div>`);
     }
   }
 
-  static displayCategoryCards() {
+  static displayCategoryCards(round) {
     for (let i = 1; i < 5; i++) {
       $('.gameboard').append(
-        `<div class='category-card-container cat${i}'>
+        `<div class='category-card-container cat${i + (4 * (round - 1))}'>
           <div class='container-style category-card>
             <p class='question-category>Category ${i}</p>
           </div>

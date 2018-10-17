@@ -6,24 +6,24 @@ class Game  {
     this.playerTurn = 0;
     this.board = null;
     this.currentQuestion;
-    this.dailydouble = this.generateDailyDoubleLocation();
+    this.dailydouble = this.generateDailyDoubleLocation(this.round);
     this.visibleCategories = {
       1: false,
       2: false,
       3: false,
       4: false
     }
+    this.questionsLeft = 20;
   }
 
   init() {
-    DomUtilities.displayCategoryCards();
-    DomUtilities.displayQuestionCards();
+    DomUtilities.displayCategoryCards(1);
+    DomUtilities.displayQuestionCards(1);
     DomUtilities.initializeListeners();
   }
 
   start(gameboard) {
     this.board = gameboard;
-
   }
   
   reset() {
@@ -54,12 +54,11 @@ class Game  {
   }
   
   
-  generateDailyDoubleLocation() {
+  generateDailyDoubleLocation(round) {
     const dailydoubleLocation = {}
-    dailydoubleLocation.category = Math.floor(Math.random() * 4) + 1 
-    dailydoubleLocation.pointValue = (Math.floor(Math.random() * 5) + 1) *100
-
-    return dailydoubleLocation
+    dailydoubleLocation.category = Math.floor(Math.random() * 4) + 1;
+    dailydoubleLocation.pointValue = ((Math.floor(Math.random() * 5) + 1) * 100);
+    return dailydoubleLocation;
   }
 
   hideCard(questionLevel, categoryNumber) {
@@ -79,11 +78,23 @@ class Game  {
   }
 
   nextTurn() {
-    $(`.name-p${this.playerTurn + 1}`).removeClass('current-player-indicator')
+    this.questionsLeft--;
+    
+    $(`.name-p${this.playerTurn + 1}`).removeClass('current-player-indicator');
     this.playerTurn = (this.playerTurn + 1) % 3;
-    $(`.name-p${this.playerTurn + 1}`).addClass('current-player-indicator')
+    $(`.name-p${this.playerTurn + 1}`).addClass('current-player-indicator');
+    
+    if (this.questionsLeft === 0) {
+      this.nextRound();
+    }
+  }
 
-
+  nextRound() {
+    this.questionsLeft = 20;
+    this.round++;
+    $('.gameboard').children().remove();
+    DomUtilities.displayCategoryCards(this.round);
+    DomUtilities.displayQuestionCards(this.round);
   }
 
   declareWinner() {
