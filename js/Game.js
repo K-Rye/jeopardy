@@ -79,7 +79,11 @@ class Game  {
   }
 
   nextTurn() {
+    $(`.name-p${this.playerTurn + 1}`).removeClass('current-player-indicator')
     this.playerTurn = (this.playerTurn + 1) % 3;
+    $(`.name-p${this.playerTurn + 1}`).addClass('current-player-indicator')
+
+
   }
 
   declareWinner() {
