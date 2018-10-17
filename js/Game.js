@@ -92,13 +92,26 @@ class Game  {
   nextRound() {
     this.questionsLeft = 20;
     this.round++;
+
+    if (this.round > 3) {
+      this.declareWinner();
+    }
+
     $('.gameboard').children().remove();
-    DomUtilities.displayCategoryCards(this.round);
-    DomUtilities.displayQuestionCards(this.round);
+    DomUtilities.displayCategoryCards();
+    DomUtilities.displayQuestionCards();
   }
 
   declareWinner() {
-    //
+    const winner = this.players.reduce((winner, player) => {
+      if (player.points > winner.points) {
+        winner = player;
+      }
+      return winner;
+    }, { points: -Infinity }).name;
+
+    $('.winner').text(winner);
+    $('.winner-popup').removeClass('hide');
     
   }
 
