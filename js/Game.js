@@ -10,6 +10,13 @@ class Game  {
       category: "2",
       pointValue: "200"
     }
+
+    this.visibleCategories = {
+      1: false,
+      2: false,
+      3: false,
+      4: false
+    }
   }
 
   init() {
@@ -29,10 +36,12 @@ class Game  {
   }
 
   askQuestion(questionLevel, categoryNumber) {
+
     this.currentQuestion = this.board[categoryNumber - 1][questionLevel];
 
     if (questionLevel === this.dailydouble.pointValue &&
       categoryNumber === this.dailydouble.category) {
+      
       this.currentQuestion = new DailyDouble(this.currentQuestion);
       DomUtilities.promptForWager();
     }

@@ -48,26 +48,28 @@
     </footer>
   </div>
 
-  <div class='player-name-popup hide'>
-    <form>
-      <label for="player1-name">Player 1</label>
-      <input id='player1-name' type="text" placeholder='Player One Name'>
-      <label for="player2-name">Player 2</label>
-      <input id='player2-name' type="text" placeholder='Player Two Name'>
-      <label for="player3-name">Player 3</label>
-      <input id='player3-name' type="text" placeholder='Player Three Name'>
-      <input class='submit-player-names' type="submit">
-    </form>
+  <div class='popup player-name-popup hide'>
+    <div class='popup-sizer container-style'>
+      <form class="player-name-form">
+        <label for="player1-name">Player 1</label>
+        <input id='player1-name' type="text" placeholder='Player One Name'>
+        <label for="player2-name">Player 2</label>
+        <input id='player2-name' type="text" placeholder='Player Two Name'>
+        <label for="player3-name">Player 3</label>
+        <input id='player3-name' type="text" placeholder='Player Three Name'>
+        <input class='submit-player-names' type="submit" value="Start Game!">
+      </form>
+    </div>
   </div>
 
   <div class='popup question-popup hide'>
-    <div class='question-popup-sizer container-style'>
+    <div class='popup-sizer container-style'>
       <h2>Player <span class='playernum'>1</span></h2>
       <p class='question-popup-question'></p>
       <div class='question-popup-submission'>
         <p>Enter Answer </p>
         <input class='question-popup-answer' type='text' placeholder='Answer'/>
-        <button class='submit-answer-button'>Submit</button>
+        <button class='submit-answer-button'>Submit Answer</button>
       </div>
       <p class='question-popup-correct displaynone'>Correct!</p>
       <p class='question-popup-incorrect displaynone'>Incorrect!</p>
@@ -75,14 +77,14 @@
   </div>
 
   <div class='popup wager-popup hide'>
-    <div class='question-popup-sizer container-style'>
+    <div class='popup-sizer container-style'>
       <h2>Player <span class='playernum'>1</span></h2>
       <p>This is the Daily Double! Please Make a Wager</p>
       <p>Valid wagers are between 5 points and your max points</p>
       <div class='wager-popup-submission'>
         <p>Enter Wager </p>
         <input class='wager-popup-answer' type='text' placeholder='Wager' />
-        <button class='submit-wager-button'>Submit</button>
+        <button class='submit-wager-button'>Submit Wager</button>
       </div>
       <p class='wager-popup-invalid displaynone'>Invalid!</p>
     </div>

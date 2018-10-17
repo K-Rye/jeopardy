@@ -99,6 +99,7 @@ class DomUtilities {
 
   static submitWager(e) {
     e.preventDefault();
+    
     const userWager = parseInt($('.wager-popup-answer').val());
 
     if (!game.currentQuestion.isValidWager(userWager)) {
