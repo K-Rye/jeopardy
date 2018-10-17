@@ -42,23 +42,46 @@ class DomUtilities {
     for (let i = 1; i < 21; i++) {
 
       const qLevel = 100 * (Math.ceil(i / 4));
-      const categ = i % 4 || 4;
+      const categ = (i % 4 || 4) + 4 * (game.round - 1);
+
+      let displayedPointValue = qLevel * game.round;
+      let idClasses = `q-${ qLevel } cat-${ categ }`
+
+      if (game.round === 3) {
+        displayedPointValue = 'FINAL';
+        if (i !== 1) {
+          idClasses = '';
+          displayedPointValue = '';
+        }
+      }
 
       $('.gameboard').append(
-        `<div class='question-card-container q-${qLevel} cat-${categ}'>
+        `<div class='question-card-container ${idClasses}'>
           <div class='container-style question-card'>
-            <p class='question-value'>${qLevel}</p>
+            <p class='question-value'>${displayedPointValue}</p>
         </div>
       </div>`);
     }
   }
 
   static displayCategoryCards() {
+
     for (let i = 1; i < 5; i++) {
+      let displayedText = `Category ${i}`;
+
+      if (game.round === 3) {
+        if (i !== 1) {
+          displayedText = '';
+        }
+        if (i === 1) {
+          displayedText = Utilities.camelToSentence(game.board[9].category);
+        }
+      }
+
       $('.gameboard').append(
-        `<div class='category-card-container cat${i}'>
+        `<div class='category-card-container cat${i + (4 * (game.round - 1))}'>
           <div class='container-style category-card>
-            <p class='question-category>Category ${i}</p>
+            <p class='question-category>${displayedText}</p>
           </div>
         </div>`);
     }

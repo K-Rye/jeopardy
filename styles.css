@@ -190,3 +190,17 @@ main {
   height: 100px;
   width: 600px;
 }
+
+h1.winner {
+  font-size: 66px;
+}
+
+.winner-popup-sizer{
+  background-color: #11176b;
+  width: 50vw;
+  height: 50vw;
+}
+
+.winner-popup-sizer > * {
+  margin: 10px;
+}
