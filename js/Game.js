@@ -36,22 +36,6 @@ class Game  {
   promptForPlayerNames() {
     $('.player-name-popup').removeClass('hide');
   }
-
-  dailyDoubleWager() {
-    //this needs to pop up when the daily double is clicked
-    //it will display the wager window which will have an input and submit button
-    //when the wager is entered and validated, the question will display with an input
-    //and submit button 
-
-    this.currentQuestion = this.board[categoryNumber - 1][questionLevel];
-
-    $('.dailyDouble-popup-wager').removeClass('hide');
-    $('.dailyDouble-popup-wager-submission').text(this.currentQuestion.question);
-    }
-
-  dailyDoubleWagerWindow() {
-    $('.dailyDouble-popup-wager').removeClass('hide');
-  }
   
   
   generateDailyDoubleLocation() {
