@@ -181,6 +181,10 @@ main {
   margin: 0;
 }
 
+.current-player-indicator {
+  color: red;
+}
+
 .title-container {
   height: 100px;
   width: 600px;
