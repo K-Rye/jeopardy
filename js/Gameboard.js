@@ -1,5 +1,6 @@
 class Gameboard {
 
+
   static generateGameboard() {
 
     let categories = Object.keys(data.categories);
