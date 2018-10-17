@@ -46,6 +46,7 @@ class Game  {
     this.showCategory(categoryNumber);
 
     $('.question-popup').removeClass('hide');
+    $('.playernum').text(game.players[game.playerTurn].name)
     $('.question-popup-question').text(this.currentQuestion.question);
   }
 
