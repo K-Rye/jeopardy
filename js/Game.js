@@ -35,11 +35,13 @@ class Game  {
 
     this.currentQuestion = this.board[categoryNumber - 1][questionLevel];
 
-    if (parseInt(questionLevel) === this.dailydouble.pointValue &&
-      parseInt(categoryNumber) === this.dailydouble.category) {
+    for (let i = 0; i < this.round; i++) {
+      if (parseInt(questionLevel) === this.dailydouble[i].pointValue &&
+        parseInt(categoryNumber) === this.dailydouble[i].category) {
       
-      this.currentQuestion = new DailyDouble(this.currentQuestion);
-      DomUtilities.promptForWager();
+        this.currentQuestion = new DailyDouble(this.currentQuestion);
+        DomUtilities.promptForWager();
+      }
     }
 
     this.hideCard(questionLevel, categoryNumber);
@@ -55,11 +57,15 @@ class Game  {
   }
   
   
-  generateDailyDoubleLocation(round) {
-    const dailydoubleLocation = {}
-    dailydoubleLocation.category = Math.floor(Math.random() * 4) + 1;
-    dailydoubleLocation.pointValue = ((Math.floor(Math.random() * 5) + 1) * 100);
-    return dailydoubleLocation;
+  generateDailyDoubleLocation() {
+    let ret = [];
+    for (let i = 0; i < this.round; i++) {
+      const dailydoubleLocation = {}
+      dailydoubleLocation.category = (Math.floor(Math.random() * 4) + 1) * this.round;
+      dailydoubleLocation.pointValue = ((Math.floor(Math.random() * 5) + 1) * 100);
+      ret.push(dailydoubleLocation);
+    }
+    return ret;
   }
 
   hideCard(questionLevel, categoryNumber) {
@@ -93,6 +99,8 @@ class Game  {
   nextRound() {
     this.questionsLeft = 20;
     this.round++;
+
+    this.dailydouble = this.generateDailyDoubleLocation(this.round);
 
     if (this.round > 3) {
       this.declareWinner();
