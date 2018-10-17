@@ -90,11 +90,17 @@ main {
 }
 
 .player-name-popup {
-  background: #fff;
-  border: solid 1px #000;
+}
+
+.popup {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  justify-content: center;
   position: absolute;
-  top: 50vh;
-  left: 50vw;
+  top: 0;
+  width: 100vw;
 }
 
 .question-card {
@@ -121,24 +127,24 @@ main {
   margin: 0;
 }
 
-.question-popup {
-  align-items: center;
-  display: flex;
-  flex-direction: column;
-  height: 100vh;
-  justify-content: center;
-  position: absolute;
-  top: 0;
-  width: 100vw;
-}
-
-.question-popup-sizer {
+.popup-sizer {
   align-items: center;
   display: flex;
   flex-direction: column;
   justify-content: center;
   text-align: center;
   width: 50vw;
+}
+
+.player-name-form {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.player-name-form > * {
+  margin: 10px;
 }
 
 .question-value {

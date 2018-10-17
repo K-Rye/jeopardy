@@ -7,6 +7,12 @@ class Game  {
     this.board = null;
     this.currentQuestion;
     this.dailydouble = this.generateDailyDoubleLocation();
+    this.visibleCategories = {
+      1: false,
+      2: false,
+      3: false,
+      4: false
+    }
   }
 
   init() {
@@ -23,11 +29,18 @@ class Game  {
   reset() {
     // create prompt for players
     // create new gameboard
-
   }
 
   askQuestion(questionLevel, categoryNumber) {
+
     this.currentQuestion = this.board[categoryNumber - 1][questionLevel];
+
+    if (questionLevel === this.dailydouble.pointValue &&
+      categoryNumber === this.dailydouble.category) {
+      
+      this.currentQuestion = new DailyDouble(this.currentQuestion);
+      DomUtilities.promptForWager();
+    }
 
     $('.question-popup').removeClass('hide');
     $('.question-popup-question').text(this.currentQuestion.question);

@@ -10,14 +10,13 @@ class Player {
 
     if (userGuess === clue.answer) {
       this.points += clue.pointValue;
+      $(`.score-p${game.playerTurn + 1}`).text(this.points);
     } else {
       this.points -= clue.pointValue;
       //move to next players turn if incorrect
+      $(`.score-p${game.playerTurn + 1}`).text(this.points);
       game.playerTurn = (game.playerTurn + 1) % 3;
     }
-
-    //updating points on dom
-    $(`.score-p${game.playerTurn + 1}`).text(this.points);
 
     //hide question popup
     $('.question-popup').addClass('hide');
