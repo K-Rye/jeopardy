@@ -42,6 +42,9 @@ class Game  {
       DomUtilities.promptForWager();
     }
 
+    this.hideCard(questionLevel, categoryNumber);
+    this.showCategory(categoryNumber);
+
     $('.question-popup').removeClass('hide');
     $('.question-popup-question').text(this.currentQuestion.question);
   }
@@ -57,6 +60,30 @@ class Game  {
     dailydoubleLocation.pointValue = (Math.floor(Math.random() * 5) + 1) *100
 
     return dailydoubleLocation
+  }
+
+  hideCard(questionLevel, categoryNumber) {
+    $(`.cat-${categoryNumber}.q-${questionLevel}`).find('p').remove();
+    $(`.cat-${categoryNumber}.q-${questionLevel}`).removeClass(`.cat-${categoryNumber} .p-${questionLevel}`);
+  }
+
+  showCategory(categoryNumber) {
+    if (!this.visibleCategories[categoryNumber]) {
+      
+      let category = this.board[categoryNumber].category;
+      category = Utilities.camelToSentence(category);
+
+      $(`.category-card-container.cat${categoryNumber}`).text(category)
+      this.visibleCategories[categoryNumber] = true;
+    }
+  }
+
+  nextTurn() {
+    $(`.name-p${this.playerTurn + 1}`).removeClass('current-player-indicator')
+    this.playerTurn = (this.playerTurn + 1) % 3;
+    $(`.name-p${this.playerTurn + 1}`).addClass('current-player-indicator')
+
+
   }
 
   declareWinner() {

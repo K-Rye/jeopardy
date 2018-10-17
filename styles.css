@@ -132,6 +132,7 @@ main {
   display: flex;
   flex-direction: column;
   justify-content: center;
+  padding: 20px;
   text-align: center;
   width: 50vw;
 }
@@ -179,6 +180,10 @@ main {
 .scoreboard-container > h2 {
   font-size: 40px;
   margin: 0;
+}
+
+.current-player-indicator {
+  color: red;
 }
 
 .title-container {
