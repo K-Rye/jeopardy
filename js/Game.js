@@ -35,6 +35,10 @@ class Game  {
 
     this.currentQuestion = this.board[categoryNumber - 1][questionLevel];
 
+    if (this.round === 3) {
+      this.roundThreeHandler();
+    }
+
     for (let i = 0; i < this.round; i++) {
       if (parseInt(questionLevel) === this.dailydouble[i].pointValue &&
         parseInt(categoryNumber) === this.dailydouble[i].category) {
@@ -122,6 +126,21 @@ class Game  {
     $('.winner').text(winner);
     $('.winner-popup').removeClass('hide');
     
+  }
+
+  roundThreeHandler() {
+    $('.final-wager-popup').removeClass('hide');
+
+    $('.submit-final-wager-p0').on('click', game.validateFinalWager);
+    $('.submit-final-wager-p1').on('click', game.validateFinalWager);
+    $('.submit-final-wager-p2').on('click', game.validateFinalWager);
+  }
+
+  validateFinalWager(event) {
+    let buttonClass = event.target.classList[0];
+    let player = buttonClass.slice(buttonClass.length - 1, buttonClass.length);
+    let wager = parseInt($(`.final-wager-p${player}`).val());
+    console.log(wager);
   }
 
 }
