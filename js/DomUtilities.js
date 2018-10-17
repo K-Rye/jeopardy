@@ -2,35 +2,13 @@ class DomUtilities {
 
   static initializeListeners() {
 
-    $('.submit-player-names').on('click', function (e) {
-      e.preventDefault();
-      const pOneName = $('#player1-name')[0].value;
-      const pTwoName = $('#player2-name')[0].value;
-      const pThreeName = $('#player3-name')[0].value;
-
-      $('.name-p1').text(pOneName);
-      $('.name-p2').text(pTwoName);
-      $('.name-p3').text(pThreeName);
-
-      game.players.push(new Player(pOneName));
-      game.players.push(new Player(pTwoName));
-      game.players.push(new Player(pThreeName));
-
-      $('.player-name-popup').addClass('hide');
-    });
+    $('.submit-player-names').on('click', DomUtilities.submitPlayerNames);
 
     $('.gameboard').on('click', DomUtilities.clickedOnGameboard);
 
-    $('.submit-answer-button').on('click', function (e) {
-      e.preventDefault();
+    $('.submit-answer-button').on('click', DomUtilities.submitAnswer);
 
-      const userGuess = $('.question-popup-answer').val();
-      const currentQuestion = game.currentQuestion;
-      const currentPlayer = game.players[game.playerTurn];
-
-      currentPlayer.submitAnswer(userGuess, currentQuestion);
-
-    });
+    $('.submit-wager-button').on('click', DomUtilities.submitWager);
   }
 
   static clickedOnGameboard(event) {
@@ -40,7 +18,6 @@ class DomUtilities {
     // we reach the gameboard
     while (!target.classList.contains('question-card-container' ||
       !target.classList.contains('gameboard'))) {
-
       target = target.parentElement;
     }
 
@@ -59,6 +36,10 @@ class DomUtilities {
 
       game.askQuestion(questionLevel, questionCategory);
     }
+  }
+
+  static promptForWager() {
+    $('.wager-popup').removeClass('hide');
   }
 
   static displayQuestionCards() {
@@ -85,6 +66,49 @@ class DomUtilities {
           </div>
         </div>`);
     }
+  }
+
+  static submitPlayerNames(e) {
+    e.preventDefault();
+
+    const pOneName = $('#player1-name')[0].value;
+    const pTwoName = $('#player2-name')[0].value;
+    const pThreeName = $('#player3-name')[0].value;
+
+    $('.name-p1').text(pOneName);
+    $('.name-p2').text(pTwoName);
+    $('.name-p3').text(pThreeName);
+
+    game.players.push(new Player(pOneName));
+    game.players.push(new Player(pTwoName));
+    game.players.push(new Player(pThreeName));
+
+    $('.player-name-popup').addClass('hide');
+  }
+
+  static submitAnswer(e) {
+    e.preventDefault();
+
+    const userGuess = $('.question-popup-answer').val();
+    const currentQuestion = game.currentQuestion;
+    const currentPlayer = game.players[game.playerTurn];
+
+    currentPlayer.submitAnswer(userGuess, currentQuestion);
+
+  }
+
+  static submitWager(e) {
+    e.preventDefault();
+    const userWager = parseInt($('.wager-popup-answer').val());
+
+    if (!game.currentQuestion.isValidWager(userWager)) {
+      $('.wager-popup-invalid').removeClass('displaynone');
+    } else {
+      $('.wager-popup-invalid').addClass('displaynone');
+      game.currentQuestion.pointValue = userWager;
+      $('.wager-popup').addClass('hide');
+    }
+    
   }
 
 }

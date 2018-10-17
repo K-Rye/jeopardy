@@ -97,6 +97,17 @@ main {
   left: 50vw;
 }
 
+.popup {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  justify-content: center;
+  position: absolute;
+  top: 0;
+  width: 100vw;
+}
+
 .question-card {
   background: #3c60e28a;
   height: 95%;
@@ -119,17 +130,6 @@ main {
 .question-category {
   font-size: 24px;
   margin: 0;
-}
-
-.question-popup {
-  align-items: center;
-  display: flex;
-  flex-direction: column;
-  height: 100vh;
-  justify-content: center;
-  position: absolute;
-  top: 0;
-  width: 100vw;
 }
 
 .question-popup-sizer {
