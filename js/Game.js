@@ -59,6 +59,10 @@ class Game  {
     return dailydoubleLocation
   }
 
+  nextTurn() {
+    this.playerTurn = (this.playerTurn + 1) % 3;
+  }
+
   declareWinner() {
     //
     
