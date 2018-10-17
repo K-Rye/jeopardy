@@ -1,13 +1,9 @@
 class DomUtilities {
 
   static initializeListeners() {
-
     $('.submit-player-names').on('click', DomUtilities.submitPlayerNames);
-
     $('.gameboard').on('click', DomUtilities.clickedOnGameboard);
-
     $('.submit-answer-button').on('click', DomUtilities.submitAnswer);
-
     $('.submit-wager-button').on('click', DomUtilities.submitWager);
   }
 

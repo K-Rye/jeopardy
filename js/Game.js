@@ -35,8 +35,8 @@ class Game  {
 
     this.currentQuestion = this.board[categoryNumber - 1][questionLevel];
 
-    if (questionLevel === this.dailydouble.pointValue &&
-      categoryNumber === this.dailydouble.category) {
+    if (parseInt(questionLevel) === this.dailydouble.pointValue &&
+      parseInt(categoryNumber) === this.dailydouble.category) {
       
       this.currentQuestion = new DailyDouble(this.currentQuestion);
       DomUtilities.promptForWager();
@@ -58,10 +58,6 @@ class Game  {
 
     return dailydoubleLocation
   }
-
-
-
-
 
   declareWinner() {
     //
