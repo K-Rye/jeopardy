@@ -131,8 +131,11 @@ class Game  {
   roundThreeHandler() {
     $('.final-wager-popup').removeClass('hide');
 
+    $('.final-wager-name0').text(game.players.pOneName)
     $('.submit-final-wager-p0').on('click', game.validateFinalWager);
+    $('.final-wager-name1').text(game.players.game.pTwoName)
     $('.submit-final-wager-p1').on('click', game.validateFinalWager);
+    $('.final-wager-name2').text(game.players.pThreeName)
     $('.submit-final-wager-p2').on('click', game.validateFinalWager);
   }
 
