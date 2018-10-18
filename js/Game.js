@@ -14,6 +14,7 @@ class Game  {
       4: false
     }
     this.questionsLeft = 20;
+    this.round3ValidWagers = [false, false, false];
   }
 
   init() {
@@ -34,6 +35,10 @@ class Game  {
   askQuestion(questionLevel, categoryNumber) {
 
     this.currentQuestion = this.board[categoryNumber - 1][questionLevel];
+
+    if (this.round === 3) {
+      this.roundThreeHandler();
+    }
 
     for (let i = 0; i < this.round; i++) {
       if (parseInt(questionLevel) === this.dailydouble[i].pointValue &&
@@ -102,10 +107,6 @@ class Game  {
 
     this.dailydouble = this.generateDailyDoubleLocation(this.round);
 
-    if (this.round > 3) {
-      this.declareWinner();
-    }
-
     $('.gameboard').children().remove();
     DomUtilities.displayCategoryCards();
     DomUtilities.displayQuestionCards();
@@ -122,6 +123,58 @@ class Game  {
     $('.winner').text(winner);
     $('.winner-popup').removeClass('hide');
     
+  }
+
+  roundThreeHandler() {
+    $('.final-wager-popup').removeClass('hide');
+
+    $('.final-wager-name0').text(game.players[0].name);
+    $('.final-wager-name1').text(game.players[1].name);
+    $('.final-wager-name2').text(game.players[2].name);
+
+    $('.submit-final-wager-p0').on('click', game.validateFinalWager);
+    $('.submit-final-wager-p1').on('click', game.validateFinalWager);
+    $('.submit-final-wager-p2').on('click', game.validateFinalWager);
+
+    $('.submit-final-answer-button').on('click', game.submitFinalAnswer);
+  }
+
+  validateFinalWager(event) {
+
+    const buttonClass = event.target.classList[0];
+    const playerNum = buttonClass.slice(buttonClass.length - 1, buttonClass.length);
+    const wager = parseInt($(`.final-wager-p${playerNum}`).val());
+    const player = game.players[playerNum];
+    
+    if (isNaN(wager) || wager > player.points || wager < 5) {
+      return;
+    } else {
+      game.round3ValidWagers[playerNum] = true;
+      const allValid = game.round3ValidWagers.reduce((status, wager) => {
+        return wager && status;
+      }, true);
+      
+      if (allValid) {
+        $('.final-wager-popup').addClass('hide');
+        game.askRound3Question();
+      }
+    }
+  }
+
+  askRound3Question() {
+    $('.final-popup').removeClass('hide');
+    game.currentQuestion = new DailyDouble(game.board[8][500]);
+    $('.final-question').text(game.currentQuestion.question);
+  }
+
+  submitFinalAnswer() {
+    for (let i = 0; i < 3; i++) {
+      const userGuess = $(`.player${i}-final-answer`).val();
+      game.players[i].submitAnswer(userGuess, game.currentQuestion);
+    }
+
+    $('.final-popup').addClass('hide');
+    this.declareWinner();
   }
 
 }

@@ -7,4 +7,8 @@ describe('Game', function() {
     expect(true).to.equal(true);
   });
   
+  it('should exist', function() {
+    expect(new Game).to.exist()
+  })
+  
 })
