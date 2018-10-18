@@ -13,7 +13,7 @@ class Game  {
       3: false,
       4: false
     }
-    this.questionsLeft = 20;
+    this.questionsLeft = 19;
     this.round3ValidWagers = [false, false, false];
   }
 
@@ -102,7 +102,7 @@ class Game  {
   }
 
   nextRound() {
-    this.questionsLeft = 20;
+    this.questionsLeft = 19;
     this.round++;
 
     this.dailydouble = this.generateDailyDoubleLocation(this.round);
